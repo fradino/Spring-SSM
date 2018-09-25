@@ -26,7 +26,7 @@
     <%--标题--%>
     <div class="row">
         <div class="col-md-12">
-            <h1>SSM_SRUD</h1>
+            <h1>SSM_CRUD</h1>
         </div>
     </div>
     <%--按钮--%>
