@@ -123,6 +123,8 @@
 </div>
 <script type="text/javascript">
     <%--1. 页面加载完成后直接发送一个ajax请求，要到分页数据--%>
+    var totalNum;
+    var totalPages;
     $(function () {
         to_page(1)
     });
@@ -173,6 +175,8 @@
     function build_page_info(result) {
         $("#page_info_area").empty();
         $("#page_info_area").append("当前 " + result.extend.pageInfo.pageNum + "页, 总共：" + result.extend.pageInfo.pages + "页, 总" + result.extend.pageInfo.total + "记录")
+        totalNum=result.extend.pageInfo.total;
+        totalPages=result.extend.pageInfo.pages;
     }
 
     function build_page_nav(result) {
@@ -250,7 +254,14 @@
             type : "POST",
             data: $("#empAddModel form").serialize(),
             success : function (result) {
-                alert(result.msg);
+                $("#empAddModel").modal('hide');
+                if (totalNum%5===0) {
+                    to_page(totalPages+1);
+                }
+                else {
+                    to_page(totalPages);
+                }
+
             }
         })
     })

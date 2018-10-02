@@ -17,7 +17,6 @@ public class EmployeeService {
     }
 
     public void saveEmp(Employee employee) {
-        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         employeeMapper.insertSelective(employee);
     }
 }

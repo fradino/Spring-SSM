@@ -20,9 +20,7 @@ public class EmpController {
 
     @RequestMapping(value = "/emps",method = RequestMethod.POST)
     public MSG saveEmp(Employee employee){
-        System.out.println(employee);
         employeeService.saveEmp(employee);
-        System.out.println("ccccccccccccccccccccccccccccccccc");
         return MSG.success();
     }
 
